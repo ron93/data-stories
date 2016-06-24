@@ -1,12 +1,31 @@
- body {
-     font-family: 'Raleway', sans-serif;
- }
- h1 {
-     font-family: 'Oswald', sans-serif;
- }
- body {
-     font-family: 'Open Sans Condensed', sans-serif;
- }
- nav {
-     font-family: 'Oswald', sans-serif;
- }
+         body {
+             font-family: 'Raleway', sans-serif;
+         }
+         h1 {
+             font-family: 'Oswald', sans-serif;
+             color: blue;
+             text-align: center;
+         }
+         body {
+             font-family: 'Open Sans Condensed', sans-serif;
+         }
+         nav {
+             font-family: 'Oswald', sans-serif;
+         }
+         li {
+             display: grid;
+         }
+         body {}
+         /*=====================arrticles======================*/
+         
+         article {
+             margin: 100px;
+             padding: 70ox;
+             padding-left: 30px;
+             width: 1200px;
+             height: 600px;
+             color: black;
+             background-color: dimgrey;
+             border-radius: 10px;
+         }
+         /*butons*/
