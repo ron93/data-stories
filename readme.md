@@ -1,2 +1,0 @@
-# Africa Data Stories
-
