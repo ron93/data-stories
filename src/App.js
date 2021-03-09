@@ -1,23 +1,57 @@
-import './App.css';
-import './index.css';
-import React, { useState } from 'react';
-import * as d3 from "d3";
-const csvUrl = 'https://gist.githubusercontent.com/ron93/5dc8ba74aa1de5a1c4c3052b250c6d8f/raw/837e10f92a55cbc58878daa6143c033b075ef933/cssNamedColors.csv';
+import React, { useState, useCallback, useEffect } from 'react';
+import { csv, arc, pie, scaleBand, scaleLinear, max } from 'd3';
+import ReactDOM from 'react-dom';
 
-const message = data =>{
-  let message = '';
-  message = message + data.length + 'rows\n';
-  message = message + data.columns.length + 'columns';
-  return message;
+const csvUrl =
+  'https://gist.githubusercontent.com/performautodev/ab00b6300b1a235cde9c57600992b86d/raw/9c2f36181b2f090e91dac0b072405b6fe033e60d/UN_Population_2019.csv'
+const width = 960;
+const height = 500;
+
+export const App = () => {
+  const [data, setData] = useState(null);
+ 
+  useEffect(() => {
+    const row = d =>{
+    	d.Population = +d['2020'];
+    	return d;
+    };
+    csv(csvUrl, row ).then(data => {
+      setData(data.slice(0,10));
+    });
+  }, []);
+
+  if (!data) {
+    return <pre>Loading...</pre>;
+  }
+
+  console.log(data[0])
+  
+	const yScale = scaleBand()
+  	.domain(data.map(d => d.Country))
+  	.range([0,height]);
+
+  const xScale = scaleLinear()
+  	.domain([0, max(data, d => d.Population)])
+  	.range([0,width]);
+  return (
+    <svg width={width} height={height}>
+      {data.map(d => <rect x={0} y={yScale(d.Country)} 
+                       width={xScale(d.Population)} 
+                       height={yScale.bandwidth()}>
+                </rect>)}   
+    </svg>
+  );
 };
+const rootElement = document.getElementById('root');
+ReactDOM.render(<App />, rootElement);
 
- export const App=()=> {
-  const [data, setData ] = useState(null);
-
-  d3.csv(csvUrl).then(data =>{
-    setData(data);
-  });
-  return (<div>Data is :{data ? message(data):'Loading...'} </div>);
-}
-
-//export default App;
+// To compute the arcs manually (without d3.pie):
+// data.map((d, i) => (
+//   <path
+//     fill={d['RGB hex value']}
+//     d={pieArc({
+//       startAngle: (i / data.length) * 2 * Math.PI,
+//       endAngle: ((i + 1) / data.length) * 2 * Math.PI
+//     })}
+//   />
+// ))
