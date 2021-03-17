@@ -1,62 +1,60 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { csv, arc, pie, scaleBand, scaleLinear, max } from 'd3';
-import ReactDOM from 'react-dom';
-import './index.css';
+import React, { useState, useCallback, useEffect } from "react";
+import { csv, scaleBand, scaleLinear, max, axisBottom, axisLeft } from "d3";
+import ReactDOM from "react-dom";
+import "./index.css";
+import { useData } from "./useData";
+import { AxisBottom } from "./AxisBottom";
+import { AxisLeft } from "./AxisLeft";
+import { Marks } from "./Marks";
 
-
-
-const csvUrl =
-  'https://gist.githubusercontent.com/performautodev/ab00b6300b1a235cde9c57600992b86d/raw/9c2f36181b2f090e91dac0b072405b6fe033e60d/UN_Population_2019.csv'
 const width = 960;
 const height = 500;
-const margin = { top: 20 , right: 20, bottom: 20, left:20 };
+const margin = { top: 20, right: 20, bottom: 20, left: 200 };
+const yValue = d => d.Country;
+const xValue =  d => d.Population;
 
-const App = () => {
-  const [data, setData] = useState(null);
- 
-  useEffect(() => {
-    const row = d =>{
-    	d.Population = +d['2020'];
-    	return d;
-    };
-    csv(csvUrl, row ).then(data => {
-      setData(data.slice(0,10));
-    });
-  }, []);
+export const App = () => {
+  const data = useData();
 
   if (!data) {
     return <pre>Loading...</pre>;
   }
 
-  console.log(data[0])
+  console.log(data[0]);
 
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
-	const yScale = scaleBand()
-  	.domain(data.map(d => d.Country))
-  	.range([0,innerHeight]);
+  const yScale = scaleBand()
+    .paddingInner(0.1)
+    .domain(data.map(yValue))
+    .range([0, innerHeight]);
 
   const xScale = scaleLinear()
-  	.domain([0, max(data, d => d.Population)])
-  	.range([0,innerWidth]);
+    .domain([0, max(data, xValue)])
+    .range([0, innerWidth]);
 
-  
+  // KEY used as mapped values unique identifier.
 
-    return (
+  console.log("ticks", xScale.ticks());
+  return (
     <svg width={width} height={height}>
-        <g transform={`translate(${margin.left},${margin.top} )`}>
+      <g transform={`translate(${margin.left},${margin.top} )`}>
+        {/* x axis ticks */}
+        <AxisBottom xScale={xScale} innerHeight={innerHeight} />
 
-        {data.map(d =>(
-           <rect x={0} 
-           y={yScale(d.Country)} 
-           width={xScale(d.Population)} 
-           height={yScale.bandwidth()}
-           />
-            ))}   
-             </g>
-             </svg>   
+        {/* y- axis ticks */}
+        <AxisLeft yScale={yScale} />
+
+        <Marks data={data}
+         yScale={yScale}
+          xScale={xScale} 
+          xValue = {xValue}
+          yValue={yValue}
+          />
+      </g>
+    </svg>
   );
 };
-const rootElement = document.getElementById('root');
-ReactDOM.render(<App />, rootElement);
+// const rootElement = document.getElementById('root');
+// ReactDOM.render(<App />, rootElement);
