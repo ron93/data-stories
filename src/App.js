@@ -43,10 +43,21 @@ export const App = () => {
   return (
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left},${margin.top} )`}>
-        {xScale.ticks().map((tickValue) => (
+       
+       {/* x axis ticks */}
+       {xScale.ticks().map((tickValue) => (
           <g transform={`translate(${xScale(tickValue)},0)`}>
             <line y2={innerHeight} stroke="black" />
             <text dy="0.71em" style={{textAnchor:'middle'}} y={innerHeight+ 4}>{tickValue}</text>
+          </g>
+        ))}
+
+        {/* y- axis ticks */}
+        {yScale.domain().map((tickValue) => (
+          <g transform={`translate(0,${yScale(tickValue)})`}>
+            <text >
+            {tickValue}
+           </text>
           </g>
         ))}
 
