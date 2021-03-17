@@ -8,7 +8,7 @@ import { Marks } from "./Marks";
 
 const width = 960;
 const height = 500;
-const margin = { top: 20, right: 20, bottom: 20, left: 200 };
+const margin = { top: 20, right: 20, bottom: 70, left: 200 };
 
 const yValue = d => d.Country;
 const xValue =  d => d.Population;
@@ -44,6 +44,7 @@ export const Stories = () => {
           {/* y- axis ticks */}
           <AxisLeft yScale={yScale} />
 
+          <text className="axis-label" x={innerWidth / 2} y={innerHeight +55} textAnchor="middle">World Population</text>
           <Marks
             data={data}
             yScale={yScale}
