@@ -4,14 +4,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import { useData } from "./useData";
 import { AxisBottom } from "./AxisBottom";
-import {AxisLeft} from './AxisLeft';
-import {Marks} from './Marks';
+import { AxisLeft } from "./AxisLeft";
+import { Marks } from "./Marks";
 
 const width = 960;
 const height = 500;
 const margin = { top: 20, right: 20, bottom: 20, left: 200 };
-
-
+const yValue = d => d.Country;
+const xValue =  d => d.Population;
 
 export const App = () => {
   const data = useData();
@@ -26,11 +26,12 @@ export const App = () => {
   const innerWidth = width - margin.left - margin.right;
 
   const yScale = scaleBand()
-    .domain(data.map((d) => d.Country))
+    .padding(0.01)
+    .domain(data.map(yValue))
     .range([0, innerHeight]);
 
   const xScale = scaleLinear()
-    .domain([0, max(data, (d) => d.Population)])
+    .domain([0, max(data, xValue)])
     .range([0, innerWidth]);
 
   // KEY used as mapped values unique identifier.
@@ -45,7 +46,12 @@ export const App = () => {
         {/* y- axis ticks */}
         <AxisLeft yScale={yScale} />
 
-        <Marks data={data} yScale={yScale} xScale={xScale}/>
+        <Marks data={data}
+         yScale={yScale}
+          xScale={xScale} 
+          xValue = {xValue}
+          yValue={yValue}
+          />
       </g>
     </svg>
   );
