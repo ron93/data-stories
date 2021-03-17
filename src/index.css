@@ -16,6 +16,7 @@ code {
   font-size: 20px;
   color: #3e3c38;
 }
-/* .bars {
-  padding-bottom: 10px;
-} */
+
+.tick line {
+  stroke: #C0C0BB;
+}

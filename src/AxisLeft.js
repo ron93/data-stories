@@ -2,7 +2,7 @@
 
 export const AxisLeft = ({yScale}) =>
   yScale.domain().map((tickValue) => (
-    <text
+    <text 
       key={tickValue}
       dy="0.32em"
       x={-4}
