@@ -39,17 +39,16 @@ export const App = () => {
     .domain([0, max(data, (d) => d.Population)])
     .range([0, innerWidth]);
 
-  console.log('ticks',xScale.ticks())
+  console.log("ticks", xScale.ticks());
   return (
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left},${margin.top} )`}>
-        {xScale.ticks().map(tickValue =>(
-          <line x1={xScale(tickValue)} 
-          y1={0} 
-          x2={xScale(tickValue)} 
-          y2={innerHeight} stroke="black"/>
-        )
-        )}
+        {xScale.ticks().map((tickValue) => (
+          <g transform={`translate(${xScale(tickValue)},0)`}>
+            <line y2={innerHeight} stroke="black" />
+            <text y={innerHeight}>{tickValue}</text>
+          </g>
+        ))}
 
         {data.map((d) => (
           <rect
