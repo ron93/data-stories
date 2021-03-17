@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { csv, scaleBand, scaleLinear, max } from "d3";
 import ReactDOM from "react-dom";
 import "./index.css";
+import { useData } from './useData';
 
 const csvUrl =
   "https://gist.githubusercontent.com/performautodev/ab00b6300b1a235cde9c57600992b86d/raw/9c2f36181b2f090e91dac0b072405b6fe033e60d/UN_Population_2019.csv";
@@ -9,18 +10,10 @@ const width = 960;
 const height = 500;
 const margin = { top: 20, right: 20, bottom: 20, left: 200 };
 
-export const App = () => {
-  const [data, setData] = useState(null);
 
-  useEffect(() => {
-    const row = (d) => {
-      d.Population = +d["2020"];
-      return d;
-    };
-    csv(csvUrl, row).then((data) => {
-      setData(data.slice(0, 10));
-    });
-  }, []);
+
+export const App = () => {
+  const data = useData();
 
   if (!data) {
     return <pre>Loading...</pre>;
@@ -38,6 +31,9 @@ export const App = () => {
   const xScale = scaleLinear()
     .domain([0, max(data, (d) => d.Population)])
     .range([0, innerWidth]);
+
+
+    // KEY used as mapped values unique identifier.
 
   console.log("ticks", xScale.ticks());
   return (
