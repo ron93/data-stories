@@ -20,3 +20,7 @@ code {
 .tick line {
   stroke: #C0C0BB;
 }
+
+.tick text {
+  fill: #8E8883 ;
+}
