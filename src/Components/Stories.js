@@ -51,6 +51,7 @@ export const Stories = () => {
             xScale={xScale}
             xValue={xValue}
             yValue={yValue}
+            tooltipFormat={xAxisTickFormat}
           />
         </g>
       </svg>
