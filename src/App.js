@@ -5,6 +5,8 @@ import "./index.css";
 import { useData } from "./useData";
 import { AxisBottom } from "./AxisBottom";
 import {AxisLeft} from './AxisLeft';
+import {Marks} from './Marks';
+
 const width = 960;
 const height = 500;
 const margin = { top: 20, right: 20, bottom: 20, left: 200 };
@@ -43,15 +45,7 @@ export const App = () => {
         {/* y- axis ticks */}
         <AxisLeft yScale={yScale} />
 
-        {data.map((d) => (
-          <rect
-            key={d.Country}
-            x={0}
-            y={yScale(d.Country)}
-            width={xScale(d.Population)}
-            height={yScale.bandwidth()}
-          />
-        ))}
+        <Marks data={data} yScale={yScale} xScale={xScale}/>
       </g>
     </svg>
   );
