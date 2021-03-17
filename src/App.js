@@ -46,7 +46,7 @@ export const App = () => {
         {xScale.ticks().map((tickValue) => (
           <g transform={`translate(${xScale(tickValue)},0)`}>
             <line y2={innerHeight} stroke="black" />
-            <text y={innerHeight}>{tickValue}</text>
+            <text dy="0.71em" style={{textAnchor:'middle'}} y={innerHeight+ 4}>{tickValue}</text>
           </g>
         ))}
 
