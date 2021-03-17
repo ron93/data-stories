@@ -1,6 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { csv, arc, pie, scaleBand, scaleLinear, max } from 'd3';
 import ReactDOM from 'react-dom';
+import './index.css';
+
+
 
 const csvUrl =
   'https://gist.githubusercontent.com/performautodev/ab00b6300b1a235cde9c57600992b86d/raw/9c2f36181b2f090e91dac0b072405b6fe033e60d/UN_Population_2019.csv'
@@ -8,7 +11,7 @@ const width = 960;
 const height = 500;
 const margin = { top: 20 , right: 20, bottom: 20, left:20 };
 
-export const App = () => {
+const App = () => {
   const [data, setData] = useState(null);
  
   useEffect(() => {
@@ -37,7 +40,10 @@ export const App = () => {
   const xScale = scaleLinear()
   	.domain([0, max(data, d => d.Population)])
   	.range([0,innerWidth]);
-  return (
+
+  
+
+    return (
     <svg width={width} height={height}>
         <g transform={`translate(${margin.left},${margin.top} )`}>
 
@@ -54,14 +60,3 @@ export const App = () => {
 };
 const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
-
-// To compute the arcs manually (without d3.pie):
-// data.map((d, i) => (
-//   <path
-//     fill={d['RGB hex value']}
-//     d={pieArc({
-//       startAngle: (i / data.length) * 2 * Math.PI,
-//       endAngle: ((i + 1) / data.length) * 2 * Math.PI
-//     })}
-//   />
-// ))
