@@ -40,7 +40,8 @@ export const Stories = () => {
     .range([0, innerWidth]);
 
   return (
-      
+      <>
+      <h1 className="title">World Population </h1>
       <svg width={width} height={height}>
         <g transform={`translate(${margin.left},${margin.top} )`}>
           {/* x axis ticks */}
@@ -64,5 +65,6 @@ export const Stories = () => {
           />
         </g>
       </svg>
+      </>
   );
 };

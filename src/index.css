@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  overflow: hidden;
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,4 +31,8 @@ code {
   font-size: 2em;
   fill: #635f5d ;
 
+}
+.title {
+  text-align: center;
+  font-size: 2em;
 }
