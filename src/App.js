@@ -42,10 +42,12 @@ export const App = () => {
   console.log("ticks", xScale.ticks());
   return (
     <svg width={width} height={height}>
+     
       <g transform={`translate(${margin.left},${margin.top} )`}>
+       
         {/* x axis ticks */}
         {xScale.ticks().map((tickValue) => (
-          <g transform={`translate(${xScale(tickValue)},0)`}>
+          <g key={tickValue} transform={`translate(${xScale(tickValue)},0)`}>
             <line y2={innerHeight} stroke="black" />
             <text
               dy="0.71em"
@@ -60,6 +62,7 @@ export const App = () => {
         {/* y- axis ticks */}
         {yScale.domain().map((tickValue) => (
           <text
+            key={tickValue}
             dy="0.32em"
             x={-4}
             y={yScale(tickValue) + yScale.bandwidth() / 2}
@@ -71,6 +74,7 @@ export const App = () => {
 
         {data.map((d) => (
           <rect
+            key={d.Country}
             x={0}
             y={yScale(d.Country)}
             width={xScale(d.Population)}
