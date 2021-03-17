@@ -1,14 +1,13 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { csv, scaleBand, scaleLinear, max, axisBottom } from "d3";
+import { csv, scaleBand, scaleLinear, max, axisBottom, axisLeft } from "d3";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { useData } from './useData';
-import { AxisBottom } from './AxisBottom';
-
+import { useData } from "./useData";
+import { AxisBottom } from "./AxisBottom";
+import {AxisLeft} from './AxisLeft';
 const width = 960;
 const height = 500;
 const margin = { top: 20, right: 20, bottom: 20, left: 200 };
-
 
 
 
@@ -32,33 +31,17 @@ export const App = () => {
     .domain([0, max(data, (d) => d.Population)])
     .range([0, innerWidth]);
 
-
-    // KEY used as mapped values unique identifier.
+  // KEY used as mapped values unique identifier.
 
   console.log("ticks", xScale.ticks());
   return (
     <svg width={width} height={height}>
-     
       <g transform={`translate(${margin.left},${margin.top} )`}>
-       
         {/* x axis ticks */}
-        <AxisBottom
-          xScale={xScale}
-          innerHeight={innerHeight}
-        />
+        <AxisBottom xScale={xScale} innerHeight={innerHeight} />
 
         {/* y- axis ticks */}
-        {yScale.domain().map((tickValue) => (
-          <text
-            key={tickValue}
-            dy="0.32em"
-            x={-4}
-            y={yScale(tickValue) + yScale.bandwidth() / 2}
-            style={{ textAnchor: "end" }}
-          >
-            {tickValue}
-          </text>
-        ))}
+        <AxisLeft yScale={yScale} />
 
         {data.map((d) => (
           <rect
