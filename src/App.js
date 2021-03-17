@@ -26,7 +26,7 @@ export const App = () => {
   const innerWidth = width - margin.left - margin.right;
 
   const yScale = scaleBand()
-    .padding(0.01)
+    .paddingInner(0.1)
     .domain(data.map(yValue))
     .range([0, innerHeight]);
 
