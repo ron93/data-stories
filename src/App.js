@@ -14,8 +14,8 @@ export const App = () => {
     <main>
       <NavBar />
       <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/stories" component={Stories} />
+        <Route exact path="/" component={Home}  />
+        <Route exact path="/stories" component={Stories} />
       </Switch>
 
       
