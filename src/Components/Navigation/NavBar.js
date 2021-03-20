@@ -21,11 +21,11 @@ export const NavBar = () => {
       <div className="menu-icon" onClick={handleClick}>
         <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
       </div>
-      <ul>
+      <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
         {Menuitems.map((item, index) => {
           return (
             <li key={index}>
-              <a className={NavItem.className} href={item.url}>
+              <a className={item.cName} href={item.url}>
                 {item.title}
               </a>
             </li>

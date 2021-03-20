@@ -2,16 +2,16 @@ export const Menuitems = [
     {
         title:'Home',
         url:'#',
-        className:'nav-links'
+        cName:'nav-links'
     },
     {
         title:'Stories',
         url:'#',
-        className:'stories-links'
+        cName:'nav-links'
     },{
         title:'Blog',
         url:'#',
-        className:'blog-links'
+        cName:'nav-links'
     },
 
 ]
