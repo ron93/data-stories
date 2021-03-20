@@ -8,7 +8,7 @@ import { Marks } from "./Marks";
 
 const width = 960;
 const height = 500;
-const margin = { top: 20, right: 20, bottom: 70, left: 230 };
+const margin = { top: 10, right: 20, bottom: 100, left: 230 };
 const xAxisLabelOffset = 55;
 
 const yValue = d => d.Country;
