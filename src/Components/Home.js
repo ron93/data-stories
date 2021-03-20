@@ -1,8 +1,7 @@
 import { Switch,Route } from "react-router-dom";
 
-import {StoryList} from "./Stories/StoryList";
 import {Stories} from "./Stories/Stories";
-
+import {StoryItems} from "./Stories/StoryItems"
 
 export const Home = () => {
   
@@ -10,7 +9,17 @@ export const Home = () => {
 
   return (
     <main>
-      <StoryList />
+      <ul>
+        {StoryItems.map((item, index) => {
+          return (
+            <li key={index}>
+              <a className={item.cName} href={item.url}>
+                {item.title}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
       <Switch>
         <Route exact path="#" component={Stories}  />
         <Route exact path="#" component={Stories} />

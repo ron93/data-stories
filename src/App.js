@@ -13,6 +13,7 @@ export const App = () => {
   return (
     <main>
       <NavBar />
+      
       <Switch>
         <Route exact path="/" component={Home}  />
         <Route exact path="/Stories" component={Stories} />
