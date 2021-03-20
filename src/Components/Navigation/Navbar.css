@@ -28,3 +28,22 @@
     text-decoration: none;
     padding: 0.5rem 1rem;
 }
+
+.nav-links:hover {
+    background-color: #6d76f7;
+    border-radius: 4px;
+    transition:  all 0.2s ease-out;
+}
+
+.far-bars {
+    color: #fff;
+}
+
+.nav-links-mobile {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+ 
+}
