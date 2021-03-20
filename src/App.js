@@ -3,7 +3,7 @@ import "./index.css";
 
 import {Home} from "./Components/Home";
 import {NavBar} from "./Components/Navigation/NavBar";
-import {Stories} from "./Components/Stories";
+import {Stories} from "./Components/Stories/Stories";
 
 
 export const App = () => {
@@ -15,7 +15,7 @@ export const App = () => {
       <NavBar />
       <Switch>
         <Route exact path="/" component={Home}  />
-        <Route exact path="/stories" component={Stories} />
+        <Route exact path="/Stories" component={Stories} />
       </Switch>
 
       

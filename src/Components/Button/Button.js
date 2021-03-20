@@ -20,7 +20,7 @@ export const Button = ({
 }) =>{
 
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0]
-    const checkButtonStyle = SIZES.includes(buttonStyle) ? buttonStyle : SIZES[0]
+    const checkButtonSize = SIZES.includes(buttonStyle) ? buttonStyle : SIZES[0]
 
     return (
         <button className={`btn ${checkButtonStyle} ${checkButtonSize}`}

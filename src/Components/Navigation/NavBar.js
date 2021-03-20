@@ -3,7 +3,8 @@ import { NavItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Menuitems } from "./menuItems";
 import "./Navbar.css";
-const state =false;
+import {Button} from '../Button/Button';
+
 
 export const NavBar = () => {
   const [clicked, setClicked] = useState(false);
@@ -17,7 +18,7 @@ export const NavBar = () => {
 
   return (
     <nav className="NavbarItems">
-      <h1 className="navbar-logo">Data Stories</h1>
+      <h1 className="navbar-logo"><a>Data  Stories</a></h1>
       <div className="menu-icon" onClick={handleClick}>
         <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
       </div>
@@ -32,6 +33,7 @@ export const NavBar = () => {
           );
         })}
       </ul>
+      <Button>Sign Up</Button>
     </nav>
   );
 };

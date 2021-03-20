@@ -1,7 +1,7 @@
 import { Switch,Route } from "react-router-dom";
 
-import {StoryList} from "./StoryList";
-import {Stories} from "./Stories";
+import {StoryList} from "./Stories/StoryList";
+import {Stories} from "./Stories/Stories";
 
 
 export const Home = () => {

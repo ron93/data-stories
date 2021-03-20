@@ -1,10 +1,10 @@
 import React from "react"
 import {  scaleBand, scaleLinear, max, format  } from "d3";
 
-import { useData } from "./useData";
-import { AxisBottom } from "./AxisBottom";
-import { AxisLeft } from "./AxisLeft";
-import { Marks } from "./Marks";
+import { useData } from "../useData";
+import { AxisBottom } from "../AxisBottom";
+import { AxisLeft } from "../AxisLeft";
+import { Marks } from "../Marks";
 
 const width = 960;
 const height = 500;
