@@ -8,7 +8,7 @@ import { Marks } from "./Marks";
 
 const width = 960;
 const height = 500;
-const margin = { top: 10, right: 20, bottom: 100, left: 230 };
+const margin = { top: 10, right: 20, bottom: 150, left: 230 };
 const xAxisLabelOffset = 55;
 
 const yValue = d => d.Country;
@@ -17,6 +17,7 @@ const xValue =  d => d.Population;
 const siFormat = format(".2s")
 const xAxisTickFormat = tickValue => siFormat(tickValue).replace('G','B')
 
+// stories component
 
 export const Stories = () => {
   const data = useData();
@@ -25,7 +26,7 @@ export const Stories = () => {
     return <pre>Loading...</pre>;
   }
 
-  console.log(data[0]);
+  // console.log(data[0]);
 
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
@@ -52,9 +53,14 @@ export const Stories = () => {
           />
 
           {/* y- axis ticks */}
-          <AxisLeft yScale={yScale} />
+          <AxisLeft 
+          
+          yScale={yScale} />
 
-          <text className="axis-label" x={innerWidth / 2} y={innerHeight +xAxisLabelOffset} textAnchor="middle">Population</text>
+          <text className="axis-label" 
+          x={innerWidth / 2} 
+          y={innerHeight +xAxisLabelOffset} 
+          textAnchor="middle">Population</text>
           <Marks
             data={data}
             yScale={yScale}
