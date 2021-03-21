@@ -6,6 +6,7 @@ import { AxisBottom } from "../AxisBottom";
 import { AxisLeft } from "../AxisLeft";
 import { Marks } from "../Marks";
 import "./Stories.css";
+import { id } from "vega";
 
 const width = 960;
 const height = 500;
@@ -17,7 +18,23 @@ const xValue = (d) => d.Population;
 
 const siFormat = format(".2s");
 const xAxisTickFormat = (tickValue) => siFormat(tickValue).replace("G", "B");
+const options = [
+  { value: "drop-option", label: "--choose continent--" },
+  { value: "africa", label: "Africa" },
+  { value: "asia", label: "Asia" },
+  { value: "australia", label: "Australia" },
+  { value: "europe", label: "Europe" },
+  { value: "s-america", label: "South America" },
+  { value: "n-america", label: "North America" },
+];
 
+const Dropdown = (option,id) => (
+  <select id={id}>
+    {options.map(({value, label}) => (
+      <option value={value}>{label}</option>
+    ))}
+  </select>
+);
 // stories component
 
 export const Stories = () => {
@@ -44,25 +61,10 @@ export const Stories = () => {
   return (
     <>
       <h1 className="title">World Population </h1>
-      <div className="container">
-          {/* <label for="continent-select">Choose a continent:</label> */}
-<div className="drop">
-          <select name="continents" id="continent-select">
-            <option value="">--choose continent--</option>
-            <option value="africa">Africa</option>
-            <option value="s-america">South America</option>
-            <option value="n-america">North America</option>
-            <option value="australia">Australia</option>
-            <option value="asia">Asia</option>
-            <option value="europe">Europe</option>
-          </select>
-          </div>
-          <div className="drop">
-
-          </div>
-        </div>
+      <div>
+        <Dropdown options={options} id="continent-select"/>
+      </div>
       <svg width={width} height={height}>
-        
         <g transform={`translate(${margin.left},${margin.top} )`}>
           {/* x axis ticks */}
           <AxisBottom
