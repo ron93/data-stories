@@ -1,12 +1,12 @@
 export const Menuitems = [
     {
         title:'Home',
-        url:'http://ron93.github.io/data-stories/',
+        url:'/',
         cName:'nav-links'
     },
     {
         title:'Stories',
-        url:'http://ron93.github.io/data-stories/Stories',
+        url:'/Stories',
         component:'Home',
         cName:'nav-links'
     },{
