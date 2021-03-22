@@ -6,7 +6,7 @@ export const Menuitems = [
     },
     {
         title:'Stories',
-        url:'/Stories',
+        url:'/stories',
         component:'Home',
         cName:'nav-links'
     },{
