@@ -7,7 +7,7 @@ export const StoryItems = [
   },
   {
     title:'food prices',
-    url:'/',
+    url:'/stories',
     cName:'story-links'
 },
 
