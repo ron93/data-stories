@@ -1,12 +1,12 @@
 export const Menuitems = [
     {
         title:'Home',
-        url:'/data-stories/home',
+        url:'/home',
         cName:'nav-links'
     },
     {
         title:'Stories',
-        url:'/data-stories/stories',
+        url:'/stories',
         component:'Home',
         cName:'nav-links'
     },{
