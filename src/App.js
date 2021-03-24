@@ -14,9 +14,9 @@ export const App = () => {
     <main>
       <NavBar />
       <Switch>
-        <Route exact path="/data-stories/home/" 
+        <Route exact path="/home" 
         component={Home}  />
-        <Route exact path="/data-stories/stories/" 
+        <Route exact path="/stories" 
         component={Stories} />
       </Switch>
 
