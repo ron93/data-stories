@@ -1,13 +1,15 @@
 export const Menuitems = [
     {
         title:'Home',
-        url:'/home',
+        url:'/',
+        component:'Home',
+
         cName:'nav-links'
     },
     {
         title:'Stories',
         url:'/stories',
-        component:'Home',
+        component:'Stories',
         cName:'nav-links'
     },{
         title:'Blog',
