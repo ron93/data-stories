@@ -1,25 +1,25 @@
 import { Switch,Route } from "react-router-dom";
 
-import {Stories} from "./Stories/Stories";
-import {StoryItems} from "./Stories/StoryItems"
-
+import {Stories} from "../Stories/Stories";
+import {StoryItems} from "../Stories/StoryItems"
+import './card.css'
 export const Home = () => {
   
   // KEY used as mapped values unique identifier.
 
   return (
     <main>
-      <ul>
+      <div className="row container">
         {StoryItems.map((item, index) => {
           return (
-            <li key={index}>
+            <div className="column card" key={index}>
               <a className={item.cName} href={item.url}>
                 {item.title}
               </a>
-            </li>
+            </div>
           );
         })}
-      </ul>
+      </div>
       <Switch>
         <Route exact path="#" component={Stories}  />
         <Route exact path="#" component={Stories} />

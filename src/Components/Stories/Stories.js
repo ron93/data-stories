@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { scaleBand, scaleLinear, max, format } from "d3";
 
 import { useData } from "../useData";
-import { AxisBottom } from "../AxisBottom";
-import { AxisLeft } from "../AxisLeft";
-import { Marks } from "../Marks";
+import { AxisBottom } from "./AxisBottom";
+import { AxisLeft } from "./AxisLeft";
+import { Marks } from "./Marks";
 import "./Stories.css";
 // import { id } from "vega";
 import { Dropdown } from "./Dropdown";
