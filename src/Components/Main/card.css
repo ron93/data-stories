@@ -13,6 +13,12 @@
   display: flex;
   /* margin: 10px; */
 }
+.preview {
+    height: 70%;;
+    width: 100%;
+    background: blueviolet;
+    margin: 0;
+}
 .row {
     display: flex;
     flex-direction: row;

@@ -13,6 +13,7 @@ export const Home = () => {
         {StoryItems.map((item, index) => {
           return (
             <div className="column card" key={index}>
+            <div className="preview"></div>
               <a className={item.cName} href={item.url}>
                 {item.title}
               </a>
@@ -29,5 +30,3 @@ export const Home = () => {
     </main>
   );
 };
-// const rootElement = document.getElementById('root');
-// ReactDOM.render(<App />, rootElement);
