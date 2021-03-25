@@ -3,12 +3,15 @@ export const StoryItems = [
   {
       title:'world population',
       url:'/stories/#1',
-      cName:'story-links'
+      cName:'story-links',
+      tech:'D3.js'
+
   },
   {
     title:'food prices',
     url:'/stories',
-    cName:'story-links'
+    cName:'story-links',
+    tech:'Tableu'
 },
 
 ]

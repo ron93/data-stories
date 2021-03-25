@@ -1,7 +1,7 @@
 import { Switch,Route } from "react-router-dom";
 
 import {Stories} from "../Stories/Stories";
-import {StoryItems} from "../Stories/StoryItems"
+import {StoryItems} from "./StoryItems"
 import './card.css'
 export const Home = () => {
   
@@ -14,9 +14,12 @@ export const Home = () => {
           return (
             <div className="column card" key={index}>
             <div className="preview"></div>
+            <div className="info">
               <a className={item.cName} href={item.url}>
                 {item.title}
               </a>
+              <p className="tech">Developed using {item.tech}</p>
+              </div>
             </div>
           );
         })}
