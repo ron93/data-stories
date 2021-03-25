@@ -1,6 +1,6 @@
 import { Switch,Route } from "react-router-dom";
 
-import {Stories} from "../Stories/Stories";
+import {Stories} from "../Stories/PopulationBarGraph";
 import {StoryItems} from "./StoryItems"
 import './card.css'
 export const Home = () => {

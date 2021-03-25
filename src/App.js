@@ -3,7 +3,7 @@ import "./index.css";
 
 import {Home} from "./Components/Main/Home";
 import {NavBar} from "./Components/Navigation/NavBar";
-import {Stories} from "./Components/Stories/Stories";
+import {Stories} from "./Components/Stories/PopulationBarGraph";
 
 
 export const App = () => {
