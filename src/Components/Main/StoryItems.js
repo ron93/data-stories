@@ -32,5 +32,23 @@ export const StoryItems = [
   cName:'story-links',
   tech:'Tableu'
 },
+{
+  title:'Climate',
+  url:'/stories',
+  cName:'story-links',
+  tech:'Tableu'
+},
+{
+  title:'Climate',
+  url:'/stories',
+  cName:'story-links',
+  tech:'Tableu'
+},
+{
+  title:'Climate',
+  url:'/stories',
+  cName:'story-links',
+  tech:'Tableu'
+},
 
 ]

@@ -5,29 +5,30 @@
 .card {
   margin: 20px;
   margin-left: 50px;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   padding: 10px;
   height: 300px;
   width: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background: rgb(65, 44, 86);
+
   /* margin: 10px; */
 }
 
 .card a {
     text-decoration: none;
-
+    color: black;
 }
 .card .info {
     text-align: left;
     margin: 10px;
-    
+    color: blanchedalmond;
 }
 .preview {
     height: 90%;;
     width: 100%;
-    background: blueviolet;
     margin: 0;
 }
 .row {

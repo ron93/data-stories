@@ -3,6 +3,9 @@ import { Switch,Route } from "react-router-dom";
 import {Stories} from "../Stories/PopulationBarGraph";
 import {StoryItems} from "./StoryItems"
 import './card.css'
+// import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBBtn, MDBRipple } from 'mdb-react-ui-kit';
+
+
 export const Home = () => {
   
   // KEY used as mapped values unique identifier.
