@@ -1,5 +1,5 @@
 .NavbarItems {
-    background: lightseagreen;
+    background: whitesmoke;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -24,13 +24,13 @@
 }
 
 .nav-links {
-    color: white;
+    color: black;
     text-decoration: none;
     padding: 0.5rem 1rem;
 }
 
 .nav-links:hover {
-    background-color: #6d76f7;
+    background-color: grey;
     border-radius: 4px;
     transition:  all 0.2s ease-out;
 }
