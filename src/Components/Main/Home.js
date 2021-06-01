@@ -1,4 +1,4 @@
-import { Switch,Route } from "react-router-dom";
+import { Switch,Route ,Link} from "react-router-dom";
 
 import {Stories} from "../Stories/PopulationBarGraph";
 import {StoryItems} from "./StoryItems"
@@ -18,9 +18,10 @@ export const Home = () => {
             <div className="column card" key={index}>
             <div className="preview"></div>
             <div className="info">
-              <a className={item.cName} href={item.url}>
+            {/* changed a to link to fix issue in deployed site */}
+              <Link className={item.cName} to={item.url}>
                 {item.title}
-              </a>
+              </Link>
               <p className="tech">Developed using {item.tech}</p>
               </div>
             </div>
